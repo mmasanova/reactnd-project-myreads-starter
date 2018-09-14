@@ -18,6 +18,7 @@ class ListBooks extends Component {
 								books={books}
 								name={shelf.name}
 								key={shelf.id}
+								id={shelf.id}
 							/>
 						))
         	}

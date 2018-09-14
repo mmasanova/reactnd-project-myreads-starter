@@ -3,13 +3,14 @@ import BooksGrid from './BooksGrid'
 
 class BookShelf extends Component {
 	render() {
-		const { books, name } = this.props
+		const { books, name, id } = this.props
+		const shelfBooks = books.filter(book => book.shelf === id)
 
 		return (
 			<div className="bookshelf">
         <h2 className="bookshelf-title">{name}</h2>
         <div className="bookshelf-books">
-          <BooksGrid />
+          <BooksGrid books={shelfBooks} />
         </div>
       </div>
 			
