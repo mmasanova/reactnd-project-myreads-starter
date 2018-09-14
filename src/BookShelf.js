@@ -2,10 +2,11 @@ import React, { Component} from 'react'
 
 class BookShelf extends Component {
 	render() {
+		const { books, name } = this.props
+
 		return (
-			<div>
-      <div className="bookshelf">
-        <h2 className="bookshelf-title">Currently Reading</h2>
+			<div className="bookshelf">
+        <h2 className="bookshelf-title">{name}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             <li>
@@ -47,7 +48,9 @@ class BookShelf extends Component {
           </ol>
         </div>
       </div>
-      <div className="bookshelf">
+			
+      
+      /*<div className="bookshelf">
         <h2 className="bookshelf-title">Want to Read</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
@@ -150,8 +153,7 @@ class BookShelf extends Component {
             </li>
           </ol>
         </div>
-      </div>
-      </div>
+      </div>*/
 		)
 	}
 }

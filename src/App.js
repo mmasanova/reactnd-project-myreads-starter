@@ -7,7 +7,7 @@ import SearchBooks from './SearchBooks'
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
   }
 
   componentDidMount() {
@@ -17,10 +17,35 @@ class BooksApp extends React.Component {
   }
 
   render() {
+    const shelves = [ 
+      { 
+        id: 'currentlyReading',
+        name: 'Currently Reading' 
+      },
+      { 
+        id: 'wantToRead',
+        name: 'Want to Read'
+      },
+      {
+        id: 'read',
+        name: 'Read'
+      }
+    ]
+
     return (
       <div className="app">
-        <Route path="/search" component={SearchBooks} books={this.state.books} />
-        <Route exact path="/" component={ListBooks} books={this.state.books} />
+        <Route 
+          path="/search" 
+          component={SearchBooks} 
+          books={this.state.books} 
+        />
+        <Route exact path="/" render={() => (
+            <ListBooks
+              books={this.state.books}
+              shelves={shelves}
+            />
+          )}
+        />
       </div>
     )
   }
