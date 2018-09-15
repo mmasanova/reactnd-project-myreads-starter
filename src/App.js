@@ -32,7 +32,7 @@ class BooksApp extends React.Component {
       this.setState((prevState) => {
         let shelves = prevState.shelves
 
-        books.map(book => {
+        books.forEach(book => {
           const shelfIndex = shelves.findIndex(shelf => shelf.id === book.shelf)
           if (shelfIndex !== -1) shelves[shelfIndex].books.push(book.id)  
         })
