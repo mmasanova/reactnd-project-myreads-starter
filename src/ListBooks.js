@@ -4,22 +4,7 @@ import BookShelf from './BookShelf'
 
 class ListBooks extends Component {
 	render() {
-		const { books, onSelectShelf } = this.props
-
-		const shelves = [ 
-      { 
-        id: 'currentlyReading',
-        name: 'Currently Reading' 
-      },
-      { 
-        id: 'wantToRead',
-        name: 'Want to Read'
-      },
-      {
-        id: 'read',
-        name: 'Read'
-      }
-    ]
+		const { books, onSelectShelf, shelves } = this.props
 
 		return (
 			<div className="list-books">
