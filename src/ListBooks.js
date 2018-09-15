@@ -4,7 +4,22 @@ import BookShelf from './BookShelf'
 
 class ListBooks extends Component {
 	render() {
-		const { books, shelves } = this.props
+		const { books, onSelectShelf } = this.props
+
+		const shelves = [ 
+      { 
+        id: 'currentlyReading',
+        name: 'Currently Reading' 
+      },
+      { 
+        id: 'wantToRead',
+        name: 'Want to Read'
+      },
+      {
+        id: 'read',
+        name: 'Read'
+      }
+    ]
 
 		return (
 			<div className="list-books">
@@ -16,9 +31,11 @@ class ListBooks extends Component {
 						shelves.map(shelf => (
 							<BookShelf 
 								books={books}
+								shelves={shelves}
 								name={shelf.name}
 								key={shelf.id}
 								id={shelf.id}
+								onSelectShelf={onSelectShelf}
 							/>
 						))
         	}

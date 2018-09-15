@@ -16,22 +16,17 @@ class BooksApp extends React.Component {
     })
   }
 
-  render() {
-    const shelves = [ 
-      { 
-        id: 'currentlyReading',
-        name: 'Currently Reading' 
-      },
-      { 
-        id: 'wantToRead',
-        name: 'Want to Read'
-      },
-      {
-        id: 'read',
-        name: 'Read'
-      }
-    ]
+  updateBookShelf = (newShelf, id) => {
+    this.setState((prevState) => {
+      const bookIndex = Object.keys(prevState.books).findIndex(key => prevState.books[key].id === id)
+      
+      if (bookIndex !== -1) prevState.books[bookIndex].shelf = newShelf
 
+      return (prevState)
+    })
+  }
+
+  render() {
     return (
       <div className="app">
         <Route 
@@ -42,7 +37,7 @@ class BooksApp extends React.Component {
         <Route exact path="/" render={() => (
             <ListBooks
               books={this.state.books}
-              shelves={shelves}
+              onSelectShelf={this.updateBookShelf}
             />
           )}
         />
