@@ -5,27 +5,36 @@ import BookSearchBar from './BookSearchBar'
 
 class SearchBooks extends Component {
   state = {
-    query: '',
     filteredBooks: []
   }
 
   searchBooks = (query) => {
-    BooksAPI.search(query).then((books = []) => {
-      this.setState({
-        filteredBooks: books,
-        query: query
+    if (query) {
+      BooksAPI.search(query).then((books = []) => {
+        if (!books.error) {
+          this.setState({
+            filteredBooks: books
+          })
+        }
+        else {
+          this.setState({
+            filteredBooks: []
+          })
+        }
       })
-    })
+    } else {
+      this.setState({
+        filteredBooks: []
+      })
+    }
   }
 
 	render() {
     const { shelves, onSelectShelf } = this.props
-    const { query } = this.state
 
 		return (
 			<div className="search-books">
         <BookSearchBar
-          query={query}
           onChange={this.searchBooks}
         />
         <div className="search-books-results">
