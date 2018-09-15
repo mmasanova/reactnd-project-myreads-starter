@@ -8,39 +8,62 @@ import SearchBooks from './SearchBooks'
 class BooksApp extends React.Component {
   state = {
     books: [],
+    shelves: [
+      { 
+        id: 'currentlyReading',
+        name: 'Currently Reading',
+        books: []
+      },
+      { 
+        id: 'wantToRead', 
+        name: 'Want to Read',
+        books: []
+      },
+      {
+        id: 'read',
+        name: 'Read',
+        books: []
+      }
+    ]
   }
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setState({ books })
+      this.setState((prevState) => {
+        let shelves = prevState.shelves
+
+        books.map(book => {
+          const shelfIndex = shelves.findIndex(shelf => shelf.id === book.shelf)
+          if (shelfIndex !== -1) shelves[shelfIndex].books.push(book.id)  
+        })
+
+        return {
+          books: books,
+          shelves: shelves
+        }
+      })
     })
   }
 
-  updateBookShelf = (newShelf, id) => {
-    this.setState((prevState) => {
-      const bookIndex = Object.keys(prevState.books).findIndex(key => prevState.books[key].id === id)
-      
-      if (bookIndex !== -1) prevState.books[bookIndex].shelf = newShelf
-
-      return (prevState)
+  updateBookShelf = (shelf, book) => {
+    BooksAPI.update(book, shelf).then((shelves) => {
+      this.setState((prevState) => {
+        const bookIndex = Object.keys(prevState.books).findIndex(key => prevState.books[key].id === book.id)
+        
+        if (bookIndex !== -1) {
+          prevState.books[bookIndex].shelf = shelf
+        } else {
+          book.shelf = shelf
+          prevState.books.push(book)
+        }
+         
+        return (prevState)
+      })
     })
   }
 
   render() {
-    const shelves = [ 
-      { 
-        id: 'currentlyReading',
-        name: 'Currently Reading' 
-      },
-      { 
-        id: 'wantToRead',
-        name: 'Want to Read'
-      },
-      {
-        id: 'read',
-        name: 'Read'
-      }
-    ]
+    const { shelves, books } = this.state
 
     return (
       <div className="app">
@@ -48,7 +71,7 @@ class BooksApp extends React.Component {
           path="/search" 
           render={() => (
             <SearchBooks
-              books={this.state.books}
+              books={books}
               shelves={shelves}
               onSelectShelf={this.updateBookShelf}
             />
@@ -56,7 +79,7 @@ class BooksApp extends React.Component {
         />
         <Route exact path="/" render={() => (
             <ListBooks
-              books={this.state.books}
+              books={books}
               onSelectShelf={this.updateBookShelf}
               shelves={shelves}
             />

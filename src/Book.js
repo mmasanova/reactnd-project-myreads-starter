@@ -19,8 +19,7 @@ class Book extends Component {
             </div>
             <BookShelfChanger 
               onSelectShelf={onSelectShelf}
-              id={book.id}
-              selectedShelf={book.shelf}
+              book={book}
               shelves={shelves}
             />
           </div>

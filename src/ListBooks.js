@@ -19,7 +19,7 @@ class ListBooks extends Component {
 								shelves={shelves}
 								name={shelf.name}
 								key={shelf.id}
-								id={shelf.id}
+								shelfId={shelf.id}
 								onSelectShelf={onSelectShelf}
 							/>
 						))
