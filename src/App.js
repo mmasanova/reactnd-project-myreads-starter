@@ -4,6 +4,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ListBooks from './ListBooks'
 import SearchBooks from './SearchBooks'
+import BookDetail from './BookDetail'
 
 class BooksApp extends React.Component {
   state = {
@@ -84,6 +85,10 @@ class BooksApp extends React.Component {
               shelves={shelves}
             />
           )}
+        />
+        <Route
+          path="/book/:bookId"
+          component={BookDetail}
         />
       </div>
     )

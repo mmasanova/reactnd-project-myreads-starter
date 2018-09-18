@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import BookShelfChanger from './BookShelfChanger'
+import { Link } from 'react-router-dom'
 
 class Book extends Component {
 	render() {
@@ -8,14 +9,16 @@ class Book extends Component {
 		return (
       <div className="book">
         <div className="book-top">
-          <div 
+          <Link
+            to={`/book/${book.id}`}
           	className="book-cover" 
           	style={{ 
           		width: 128, 
           		height: 193, 
           		backgroundImage: book.imageLinks ? `url('${book.imageLinks.smallThumbnail}')` : null
           	}}>
-          </div>
+            More about {book.title}
+          </Link>
           <BookShelfChanger 
             onSelectShelf={onSelectShelf}
             book={book}
