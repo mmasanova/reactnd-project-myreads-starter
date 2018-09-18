@@ -9,12 +9,13 @@ class BooksGrid extends Component {
 			<ol className="books-grid">
 				{
 					books.map(book => (
-						<Book 
-							key={book.id}
-							book={book}
-							onSelectShelf={onSelectShelf}
-							shelves={shelves}
-						/>
+						<li key={book.id}>
+							<Book 
+								book={book}
+								onSelectShelf={onSelectShelf}
+								shelves={shelves}
+							/>
+						</li>
 					))
 				}
       </ol>
