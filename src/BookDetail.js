@@ -1,5 +1,7 @@
 import React, { Component} from 'react'
 import * as BooksAPI from './BooksAPI'
+import BookDetailHeader from './BookDetailHeader'
+import Book from './Book'
 
 class BookDetail extends Component {
 	state = {
@@ -16,9 +18,20 @@ class BookDetail extends Component {
 
 	render() {
 		const { book } = this.state
+		const { shelves, onSelectShelf } = this.props
 	
 		return (
-			<div>{book.title}</div>
+			<div id="book-detail">
+				<BookDetailHeader title={book.title} />
+				<Book 
+					onSelectShelf={onSelectShelf}
+					book={book}
+					shelves={shelves}
+				/>
+				<div className="book-info">
+					<p>{book.description}</p>
+				</div>
+			</div>
 		)
 	}
 }

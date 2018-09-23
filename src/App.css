@@ -173,3 +173,50 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* book detail page */
+
+.book-detail-header {
+  background: #2e7c31;
+  width: 100%;
+  display: flex;
+  min-height: 68px;
+}
+
+.book-detail-title {
+  padding: 10px 0;
+  background: #2e7c31;
+  text-align: center;
+  flex: 1 1;
+}
+
+.book-detail-title h1 {
+  font-weight: 400;
+  margin: 0;
+  color: white;
+  font-size: 1.5em;
+  line-height: 48px;
+}
+
+.close-book-detail {
+  display: block;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 68px;
+  background: #2e7c31;
+  background-image: url('./icons/arrow-back-white.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+}
+
+#book-detail .book {
+  float: left;
+  margin: 1em;
+}
+
+.book-info {
+  padding: 0 10px 20px;
+}

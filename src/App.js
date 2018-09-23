@@ -88,7 +88,13 @@ class BooksApp extends React.Component {
         />
         <Route
           path="/book/:bookId"
-          component={BookDetail}
+          render={(props) => (
+            <BookDetail
+              {...props}
+              shelves={shelves}
+              onSelectShelf={this.updateBookShelf}
+            />
+          )}
         />
       </div>
     )
