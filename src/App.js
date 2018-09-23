@@ -70,8 +70,9 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route 
           path="/search" 
-          render={() => (
+          render={(props) => (
             <SearchBooks
+              {...props}
               books={books}
               shelves={shelves}
               onSelectShelf={this.updateBookShelf}
@@ -88,13 +89,15 @@ class BooksApp extends React.Component {
         />
         <Route
           path="/book/:bookId"
-          render={(props) => (
+          render={(props) => {
+            console.log(props)
+          return (
             <BookDetail
               {...props}
               shelves={shelves}
               onSelectShelf={this.updateBookShelf}
             />
-          )}
+          )}}
         />
       </div>
     )

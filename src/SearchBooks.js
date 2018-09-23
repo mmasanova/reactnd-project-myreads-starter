@@ -5,7 +5,12 @@ import BookSearchBar from './BookSearchBar'
 
 class SearchBooks extends Component {
   state = {
-    filteredBooks: []
+    filteredBooks: [],
+    query: (this.props.location.state) ? this.props.location.state.query : ''
+  }
+
+  componentDidMount() {
+    if (this.state.query) this.searchBooks(this.state.query)
   }
 
   searchBooks = (query) => {
@@ -29,10 +34,12 @@ class SearchBooks extends Component {
         filteredBooks: []
       })
     }
+
+    this.setState({ query })
   }
 
 	render() {
-    const { shelves, onSelectShelf } = this.props
+    const { shelves, onSelectShelf, location } = this.props
 
 		return (
 			<div className="search-books">
@@ -44,6 +51,8 @@ class SearchBooks extends Component {
             books={this.state.filteredBooks}
             shelves={shelves}
             onSelectShelf={onSelectShelf}
+            fromSearch={true}
+            query={this.state.query}
           />
         </div>
     	</div>

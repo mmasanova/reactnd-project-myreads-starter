@@ -210,6 +210,12 @@ body, .app {
   background-repeat: no-repeat;
   background-size: 28px;
   font-size: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.close-book-detail:active {
+  outline: none;
 }
 
 #book-detail .book {

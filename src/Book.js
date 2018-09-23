@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom'
 
 class Book extends Component {
 	render() {
-		const { book, onSelectShelf, shelves } = this.props
+		const { book, onSelectShelf, shelves, fromSearch, query } = this.props
 
 		return (
       <div className="book">
         <div className="book-top">
           <Link
-            to={`/book/${book.id}`}
+            to={{
+              pathname: `/book/${book.id}`,
+              state: { fromSearch: fromSearch, query: query }
+            }}
           	className="book-cover" 
           	style={{ 
           		width: 128, 

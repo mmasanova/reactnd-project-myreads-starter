@@ -18,11 +18,16 @@ class BookDetail extends Component {
 
 	render() {
 		const { book } = this.state
-		const { shelves, onSelectShelf } = this.props
-	
+		const { shelves, onSelectShelf, location } = this.props
+		const parentPath = (location.state.fromSearch) ? '/search' : '/'
+
 		return (
 			<div id="book-detail">
-				<BookDetailHeader title={book.title} />
+				<BookDetailHeader 
+					title={book.title}
+					parentPath={parentPath}
+					query={location.state.query}
+				/>
 				<Book 
 					onSelectShelf={onSelectShelf}
 					book={book}
