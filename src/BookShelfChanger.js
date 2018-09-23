@@ -3,13 +3,16 @@ import React, { Component} from 'react'
 class BookShelfChanger extends Component {
 	render() {
 		const { book, onSelectShelf, shelves } = this.props
+    const shelfKeys = Object.keys(shelves)
     let selectedShelf = 'none'
 
-    for (let shelfX = 0; shelfX < shelves.length; shelfX++) {
-      const shelf = shelves[shelfX]
+    for (let shelfX = 0; shelfX < shelfKeys.length; shelfX++) {
+      const shelf = shelves[shelfKeys[shelfX]]
+
+      if (shelfX === 0) console.log(shelfKeys[shelfX], shelf.books)
 
       if (shelf.books.indexOf(book.id) !== -1) {
-        selectedShelf = shelf.id
+        selectedShelf = shelfKeys[shelfX]
         break;
       }
     }
@@ -21,11 +24,11 @@ class BookShelfChanger extends Component {
           onChange={(event) => onSelectShelf(event.target.value, book)}>
             <option value="move" disabled>Move to...</option>
             {
-              shelves.map(shelfOption => (
+              Object.keys(shelves).map(shelfKey => (
                 <option 
-                  value={shelfOption.id}
-                  key={shelfOption.id}>
-                  {shelfOption.name}
+                  value={shelfKey}
+                  key={shelfKey}>
+                  {shelves[shelfKey].name}
                 </option>
               ))
             }

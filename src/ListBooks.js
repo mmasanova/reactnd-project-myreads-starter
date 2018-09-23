@@ -13,16 +13,20 @@ class ListBooks extends Component {
         </div>
           <div className="list-books-content">
         	{
-						shelves.map(shelf => (
-							<BookShelf 
-								books={books}
-								shelves={shelves}
-								name={shelf.name}
-								key={shelf.id}
-								shelfId={shelf.id}
-								onSelectShelf={onSelectShelf}
-							/>
-						))
+						Object.keys(shelves).map(shelfKey => {
+							const shelf = shelves[shelfKey]
+							console.log(shelf)
+
+							return (
+								<BookShelf 
+									books={books}
+									shelves={shelves}
+									name={shelf.name}
+									key={shelfKey}
+									shelfId={shelfKey}
+									onSelectShelf={onSelectShelf}
+								/>
+						)})
         	}
       		</div>
           <div className="open-search">

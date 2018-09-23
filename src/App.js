@@ -9,23 +9,20 @@ import BookDetail from './BookDetail'
 class BooksApp extends React.Component {
   state = {
     books: [],
-    shelves: [
-      { 
-        id: 'currentlyReading',
+    shelves: {
+      currentlyReading: { 
         name: 'Currently Reading',
         books: []
       },
-      { 
-        id: 'wantToRead', 
+      wantToRead: {
         name: 'Want to Read',
         books: []
       },
-      {
-        id: 'read',
+      read: {
         name: 'Read',
         books: []
       }
-    ]
+    }
   }
 
   componentDidMount() {
@@ -34,8 +31,9 @@ class BooksApp extends React.Component {
         let shelves = prevState.shelves
 
         books.forEach(book => {
-          const shelfIndex = shelves.findIndex(shelf => shelf.id === book.shelf)
-          if (shelfIndex !== -1) shelves[shelfIndex].books.push(book.id)  
+          if (Object.keys(shelves).indexOf(book.shelf) !== -1) {
+            shelves[book.shelf].books.push(book.id)
+          } 
         })
 
         return {
@@ -50,12 +48,26 @@ class BooksApp extends React.Component {
     BooksAPI.update(book, shelf).then((shelves) => {
       this.setState((prevState) => {
         const bookIndex = Object.keys(prevState.books).findIndex(key => prevState.books[key].id === book.id)
-        
+
         if (bookIndex !== -1) {
+          const prevShelf = prevState.books[bookIndex].shelf
+
+          if (Object.keys(prevState.shelves).indexOf(prevShelf) !== -1) {
+            const prevShelfBookIndex = prevState.shelves[prevShelf].books.indexOf(book.id)
+
+            if (prevShelfBookIndex !== -1) {
+              prevState.shelves[prevShelf].books.splice(prevShelfBookIndex, 1)
+            }
+          }
+          
           prevState.books[bookIndex].shelf = shelf
         } else {
           book.shelf = shelf
           prevState.books.push(book)
+        }
+         
+        if (Object.keys(prevState.shelves).indexOf(shelf) !== -1) {
+          prevState.shelves[shelf].books.push(book.id)
         }
          
         return (prevState)
