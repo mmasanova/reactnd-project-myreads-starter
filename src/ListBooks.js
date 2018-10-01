@@ -15,7 +15,6 @@ class ListBooks extends Component {
         	{
 						Object.keys(shelves).map(shelfKey => {
 							const shelf = shelves[shelfKey]
-							console.log(shelf)
 
 							return (
 								<BookShelf 

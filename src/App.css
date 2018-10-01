@@ -142,6 +142,7 @@ body, .app {
   height: 200px;
   display: flex;
   align-items: flex-end;
+  margin: 0 0 1em 0;
 }
 
 .book-shelf-changer {
@@ -253,6 +254,12 @@ body, .app {
   font-weight: bold;
 }
 
-#publishing-info {
+.rating {
+  float: left;
+  padding: 0 0.3em 0 0;
+}
+
+.ratingCount {
   font-size: 0.8em;
+  line-height: 24px;
 }

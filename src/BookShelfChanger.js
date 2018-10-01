@@ -9,8 +9,6 @@ class BookShelfChanger extends Component {
     for (let shelfX = 0; shelfX < shelfKeys.length; shelfX++) {
       const shelf = shelves[shelfKeys[shelfX]]
 
-      if (shelfX === 0) console.log(shelfKeys[shelfX], shelf.books)
-
       if (shelf.books.indexOf(book.id) !== -1) {
         selectedShelf = shelfKeys[shelfX]
         break;
