@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 class Book extends Component {
 	render() {
-		const { book, onSelectShelf, shelves, fromSearch, query } = this.props
+		const { book, onSelectShelf, shelves, fromSearch, query, hideText } = this.props
 
 		return (
       <div className="book">
@@ -28,8 +28,8 @@ class Book extends Component {
             shelves={shelves}
           />
         </div>
-        <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.authors && book.authors.join(', ')}</div>
+        { !hideText && <div className="book-title">{book.title}</div> }
+        { !hideText && <div className="book-authors">{book.authors && book.authors.join(', ')}</div> }
       </div>
 		)
 	}

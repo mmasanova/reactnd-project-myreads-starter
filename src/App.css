@@ -114,6 +114,7 @@ body, .app {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .books-grid li {
   padding: 10px 15px;
   text-align: left;
@@ -122,15 +123,18 @@ body, .app {
 .book {
   width: 140px;
 }
+
 .book-title,
 .book-authors {
   font-size: 0.8em;
 }
+
 .book-title {
   margin-top: 10px;
 }
+
 .book-authors {
-  color: #999;
+  color: #737373;
 }
 
 .book-top {
@@ -225,4 +229,30 @@ body, .app {
 
 .book-info {
   padding: 0 10px 20px;
+}
+
+.book-info h2 {
+  margin: 20px 0 0 0;
+}
+
+.book-info h3 {
+  font-style: italic;
+}
+
+.book-info h4 {
+  margin: 0;
+}
+
+.book-info ul {
+  list-style-type: none;
+  padding: 1em 0;
+  clear: both;
+}
+
+.book-info span {
+  font-weight: bold;
+}
+
+#publishing-info {
+  font-size: 0.8em;
 }

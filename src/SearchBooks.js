@@ -39,7 +39,7 @@ class SearchBooks extends Component {
   }
 
 	render() {
-    const { shelves, onSelectShelf, location } = this.props
+    const { shelves, onSelectShelf } = this.props
 
 		return (
 			<div className="search-books">
