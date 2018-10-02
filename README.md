@@ -87,6 +87,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Dependencies
 
 [React Stars](https://www.npmjs.com/package/react-stars)
+
 [React Router](https://github.com/ReactTraining/react-router)
 
 ## Contributing
