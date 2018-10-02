@@ -18,7 +18,7 @@ User can add more books by pressing the '+' button on the main page which takes 
 
 The books can be moved between shelves.
 
-For more detail about the book the book avatar can be clicked. This will take user to a book detail page which contains the book subtitle, description, publisher etc.
+To see more detail about the book, the book image on main page or search page can be clicked. This will take user to a book detail page which contains the book subtitle, description, publisher etc.
 
 ## Installation
 
