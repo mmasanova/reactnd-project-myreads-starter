@@ -84,6 +84,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * Store scroll position in order to auto-scroll back to where user has been previously when returning from the book detail page.
 
+## Dependencies
+
+[React Stars](https://www.npmjs.com/package/react-stars)
+[React Router](https://github.com/ReactTraining/react-router)
+
 ## Contributing
 
 This repository is my project code for the Udacity FEND course. Therefore, I most likely will not accept pull requests.
