@@ -1,10 +1,10 @@
-import React, { Component} from 'react'
-import BooksGrid from './BooksGrid'
+import React, { Component} from 'react';
+import BooksGrid from './BooksGrid';
 
 class BookShelf extends Component {
 	render() {
-		const { books, name, shelfId, onSelectShelf, shelves } = this.props
-		const shelfBooks = books.filter(book => book.shelf === shelfId)
+		const { books, name, shelfId, onSelectShelf, shelves } = this.props;
+		const shelfBooks = books.filter(book => book.shelf === shelfId);
 
 		return (
 			<div className="bookshelf">
@@ -17,8 +17,8 @@ class BookShelf extends Component {
           />
         </div>
       </div>
-		)
+		);
 	}
 }
 
-export default BookShelf
+export default BookShelf;

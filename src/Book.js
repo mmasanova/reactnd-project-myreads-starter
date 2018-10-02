@@ -1,11 +1,11 @@
-import React, { Component} from 'react'
-import BookShelfChanger from './BookShelfChanger'
-import { Link } from 'react-router-dom'
-import ReactStars from 'react-stars'
+import React, { Component} from 'react';
+import BookShelfChanger from './BookShelfChanger';
+import { Link } from 'react-router-dom';
+import ReactStars from 'react-stars';
 
 class Book extends Component {
 	render() {
-		const { book, onSelectShelf, shelves, fromSearch, query, hideText } = this.props
+		const { book, onSelectShelf, shelves, fromSearch, query, hideText } = this.props;
     
 		return (
       <div className="book">
@@ -15,12 +15,12 @@ class Book extends Component {
               pathname: `/book/${book.id}`,
               state: { fromSearch: fromSearch, query: query }
             }}
-          	className="book-cover" 
-          	style={{ 
-          		width: 128, 
-          		height: 193, 
-          		backgroundImage: book.imageLinks ? `url('${book.imageLinks.smallThumbnail}')` : null
-          	}}>
+            className="book-cover" 
+            style={{ 
+            width: 128, 
+            height: 193, 
+            backgroundImage: book.imageLinks ? `url('${book.imageLinks.smallThumbnail}')` : null
+            }}>
             More about {book.title}
           </Link>
           <BookShelfChanger 
@@ -40,8 +40,8 @@ class Book extends Component {
         />
         <div className="ratingCount">{book.ratingsCount || 0}</div>
       </div>
-		)
+		);
 	}
 }
 
-export default Book
+export default Book;

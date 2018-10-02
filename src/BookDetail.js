@@ -1,7 +1,7 @@
-import React, { Component} from 'react'
-import * as BooksAPI from './BooksAPI'
-import BookDetailHeader from './BookDetailHeader'
-import Book from './Book'
+import React, { Component} from 'react';
+import * as BooksAPI from './BooksAPI';
+import BookDetailHeader from './BookDetailHeader';
+import Book from './Book';
 
 class BookDetail extends Component {
 	state = {
@@ -11,15 +11,15 @@ class BookDetail extends Component {
 	componentDidMount() {
     BooksAPI.get(this.props.match.params.bookId).then((book) => {
       this.setState({
-      	book: book
-      })
-    })
+				book: book
+      });
+    });
   }
 
 	render() {
-		const { book } = this.state
-		const { shelves, onSelectShelf, location } = this.props
-		const parentPath = (location.state.fromSearch) ? '/search' : '/'
+		const { book } = this.state;
+		const { shelves, onSelectShelf, location } = this.props;
+		const parentPath = (location.state.fromSearch) ? '/search' : '/';
 		
 		return (
 			<div id="book-detail">
@@ -54,8 +54,8 @@ class BookDetail extends Component {
 					}
 				</div>
 			</div>
-		)
+		);
 	}
 }
 
-export default BookDetail
+export default BookDetail;

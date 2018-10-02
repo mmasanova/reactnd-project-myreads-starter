@@ -1,16 +1,16 @@
-import React, { Component} from 'react'
+import React, { Component} from 'react';
 
 class BookShelfChanger extends Component {
 	render() {
-		const { book, onSelectShelf, shelves } = this.props
-    const shelfKeys = Object.keys(shelves)
-    let selectedShelf = 'none'
+		const { book, onSelectShelf, shelves } = this.props;
+    const shelfKeys = Object.keys(shelves);
+    let selectedShelf = 'none';
 
     for (let shelfX = 0; shelfX < shelfKeys.length; shelfX++) {
-      const shelf = shelves[shelfKeys[shelfX]]
+      const shelf = shelves[shelfKeys[shelfX]];
 
       if (shelf.books.indexOf(book.id) !== -1) {
-        selectedShelf = shelfKeys[shelfX]
+        selectedShelf = shelfKeys[shelfX];
         break;
       }
     }
@@ -33,8 +33,8 @@ class BookShelfChanger extends Component {
             <option value="none">None</option>
         </select>
       </div>
-		)
+		);
 	}
 }
 
-export default BookShelfChanger
+export default BookShelfChanger;

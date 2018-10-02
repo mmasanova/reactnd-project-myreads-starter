@@ -1,7 +1,7 @@
-import React, { Component} from 'react'
-import * as BooksAPI from './BooksAPI'
-import BooksGrid from './BooksGrid'
-import BookSearchBar from './BookSearchBar'
+import React, { Component} from 'react';
+import * as BooksAPI from './BooksAPI';
+import BooksGrid from './BooksGrid';
+import BookSearchBar from './BookSearchBar';
 
 class SearchBooks extends Component {
   state = {
@@ -10,36 +10,36 @@ class SearchBooks extends Component {
   }
 
   componentDidMount() {
-    if (this.state.query) this.searchBooks(this.state.query)
+    if (this.state.query) this.searchBooks(this.state.query);
   }
 
   searchBooks = (query) => {
     if (query) {
       BooksAPI.search(query).then((books = []) => {
         if (!books.error) {
-          books.map(book => book.shelf = 'none')
+          books.map(book => book.shelf = 'none');
 
           this.setState({
             filteredBooks: books
-          })
+          });
         }
         else {
           this.setState({
             filteredBooks: []
-          })
+          });
         }
-      })
+      });
     } else {
       this.setState({
         filteredBooks: []
-      })
+      });
     }
 
-    this.setState({ query })
+    this.setState({ query });
   }
 
 	render() {
-    const { shelves, onSelectShelf } = this.props
+    const { shelves, onSelectShelf } = this.props;
 
 		return (
 			<div className="search-books">
@@ -47,7 +47,7 @@ class SearchBooks extends Component {
           onChange={this.searchBooks}
         />
         <div className="search-books-results">
-        	<BooksGrid 
+          <BooksGrid 
             books={this.state.filteredBooks}
             shelves={shelves}
             onSelectShelf={onSelectShelf}
@@ -55,9 +55,9 @@ class SearchBooks extends Component {
             query={this.state.query}
           />
         </div>
-    	</div>
-		)
+      </div>
+		);
 	}
 }
 
-export default SearchBooks
+export default SearchBooks;

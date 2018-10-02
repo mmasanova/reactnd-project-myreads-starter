@@ -1,9 +1,9 @@
-import React, { Component} from 'react'
-import Book from './Book'
+import React, { Component} from 'react';
+import Book from './Book';
 
 class BooksGrid extends Component {
 	render() {
-		const { books, onSelectShelf, shelves, fromSearch, query } = this.props
+		const { books, onSelectShelf, shelves, fromSearch, query } = this.props;
 
 		return (
 			<ol className="books-grid">
@@ -21,8 +21,8 @@ class BooksGrid extends Component {
 					))
 				}
       </ol>
-		)
+		);
 	}
 }
 
-export default BooksGrid
+export default BooksGrid;

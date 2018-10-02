@@ -1,9 +1,9 @@
-import React, { Component} from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component} from 'react';
+import { Link } from 'react-router-dom';
 
 class BookDetailHeader extends Component {
 	render() {
-		const { parentPath, query } = this.props
+		const { parentPath, query } = this.props;
 		
 		return (
 			<div className="book-detail-header">
@@ -14,11 +14,11 @@ class BookDetailHeader extends Component {
 						state: { query: query }
 					}}>Close</Link>
 				<div className="book-detail-title">
-	        <h1>{this.props.title}</h1>
-	      </div>
-	    </div>
-		)
+					<h1>{this.props.title}</h1>
+				</div>
+			</div>
+		);
 	}
 }
 
-export default BookDetailHeader
+export default BookDetailHeader;
