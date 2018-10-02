@@ -5,32 +5,41 @@ import ReactStars from 'react-stars';
 
 class Book extends Component {
 	render() {
-		const { book, onSelectShelf, shelves, fromSearch, query, hideText } = this.props;
+		const { book, onSelectShelf, shelves, fromSearch, query, isBookDetail } = this.props;
     
 		return (
       <div className="book">
         <div className="book-top">
-          <Link
-            to={{
-              pathname: `/book/${book.id}`,
-              state: { fromSearch: fromSearch, query: query }
-            }}
-            className="book-cover" 
-            style={{ 
-            width: 128, 
-            height: 193, 
-            backgroundImage: book.imageLinks ? `url('${book.imageLinks.smallThumbnail}')` : null
-            }}>
-            More about {book.title}
-          </Link>
+          {!isBookDetail && 
+            <Link
+              to={{
+                pathname: `/book/${book.id}`,
+                state: { fromSearch: fromSearch, query: query }
+              }}
+              className="book-cover" 
+              style={{ 
+                backgroundImage: book.imageLinks ? `url('${book.imageLinks.smallThumbnail}')` : null
+              }}>
+              More about {book.title}
+            </Link>
+          }
+          {isBookDetail &&
+            <div
+              className="book-cover"
+              style={{ 
+                backgroundImage: book.imageLinks ? `url('${book.imageLinks.smallThumbnail}')` : null
+              }}>
+              More about {book.title}
+            </div>
+          }
           <BookShelfChanger 
             onSelectShelf={onSelectShelf}
             book={book}
             shelves={shelves}
           />
         </div>
-        { !hideText && <div className="book-title">{book.title}</div> }
-        { !hideText && <div className="book-authors">{book.authors && book.authors.join(', ')}</div> }
+        { !isBookDetail && <div className="book-title">{book.title}</div> }
+        { !isBookDetail && <div className="book-authors">{book.authors && book.authors.join(', ')}</div> }
         <ReactStars 
           className="rating"
           count={5} 

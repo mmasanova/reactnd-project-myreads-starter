@@ -32,7 +32,7 @@ class BookDetail extends Component {
 					onSelectShelf={onSelectShelf}
 					book={book}
 					shelves={shelves}
-					hideText={true}
+					isBookDetail={true}
 				/>
 				<div className="book-info">
 					<h2>{book.title}</h2>
