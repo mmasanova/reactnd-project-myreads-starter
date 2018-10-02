@@ -1,9 +1,11 @@
 html, body, .root {
   height: 100%;
 }
+
 body {
   line-height: 1.5;
 }
+
 body, .app {
   background: white;
 }
@@ -17,6 +19,7 @@ body, .app {
   min-height: 68px;
   line-height: 47px;
 }
+
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
@@ -33,16 +36,11 @@ body, .app {
   padding: 0 10px 20px;
 }
 
-@media (min-width: 600px) {
-  .bookshelf {
-    padding: 0 20px 40px;
-  }
-}
-
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
   font-size: 1.3em;
 }
+
 .bookshelf-books {
   text-align: center;
 }
@@ -52,6 +50,7 @@ body, .app {
   right: 25px;
   bottom: 25px;
 }
+
 .open-search a {
   display: block;
   width: 50px;
@@ -77,10 +76,12 @@ body, .app {
   display: flex;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
 }
+
 .search-books-input-wrapper {
   flex: 1;
   background: #e9e;
 }
+
 .search-books-bar input {
   width: 100%;
   padding: 15px 10px;
@@ -113,7 +114,6 @@ body, .app {
   list-style-type: none;
   padding: 0;
   margin: 0;
-
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -163,6 +163,7 @@ body, .app {
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
 .book-shelf-changer select {
   width: 100%;
   height: 100%;
@@ -177,6 +178,7 @@ body, .app {
   background: #eee;
   font-size: 0;
 }
+
 .book-cover-title {
   padding: 20px 10px 0;
   text-align: center;
@@ -267,4 +269,10 @@ body, .app {
 .ratingCount {
   font-size: 0.8em;
   line-height: 24px;
+}
+
+@media (min-width: 600px) {
+  .bookshelf {
+    padding: 0 20px 40px;
+  }
 }
